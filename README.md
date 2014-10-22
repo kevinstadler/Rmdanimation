@@ -34,6 +34,8 @@ Only *animatedGIF()* called with *allowHTML=FALSE* will return a pure Markdown i
 
 *animatedHTML()* in particular will create a separate HTML file with your animation using [SciAnimator](https://github.com/brentertz/scianimator) which comes with fully configurable frame-by-frame navigation tools. The HTML snippet returned by the function is simply an Iframe displaying this page.
 
-    `` `r animatedHTML({for (i in 0:10) plot(i, i, xlim=c(0,10), ylim=c(0,10))}, "navigableanimation")` ``
+```
+`r animatedHTML({for (i in 0:10) plot(i, i, xlim=c(0,10), ylim=c(0,10))}, "navigableanimation")`
+```
 
 See [revealjs.Rmd](examples/revealjs.Rmd) for an example using animations in a reveal.js slideshow.
