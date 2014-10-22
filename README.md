@@ -14,13 +14,15 @@ Since the functions are just a thin wrapper around the *animation* package, all 
 
 1. in a normal R code chunk, use the *results='asis'* option and call *cat()* to print the Markdown snippet (otherwise you'll end up with superfluous line numbering added by *print()*). This way multiple animations can be output by one code chunk.
 
-    &#96;&#96;&#96;&#96;{r someanimations, results='asis'}
+```
+    ````{r someanimations, results='asis'}
     library(Rmdanimation)
     cat(animatedGIF({for (i in 0:10) plot(i, i, xlim=c(0,10), ylim=c(0,10))}, "myfirstanimation"))
     
     # the second animation stop after playing through it once
     cat(animatedGIF({for (i in 0:10) plot(i, i, xlim=c(0,10), ylim=c(0,10))}, "stoppinganimation", loop=1))
-    &#96;&#96;&#96;&#96;
+    ````
+```
 
 2. alternatively, if you don't want your code to be printed anyway, you can simply use the inline code chunk syntax:
 
@@ -32,6 +34,6 @@ Only *animatedGIF()* called with *allowHTML=FALSE* will return a pure Markdown i
 
 *animatedHTML()* in particular will create a separate HTML file with your animation using [SciAnimator](https://github.com/brentertz/scianimator) which comes with fully configurable frame-by-frame navigation tools. The HTML snippet returned by the function is simply an Iframe displaying this page.
 
-    &#96;r animatedHTML({for (i in 0:10) plot(i, i, xlim=c(0,10), ylim=c(0,10))}, "navigableanimation")&#96;
+    `` `r animatedHTML({for (i in 0:10) plot(i, i, xlim=c(0,10), ylim=c(0,10))}, "navigableanimation")` ``
 
 See [revealjs.Rmd](examples/revealjs.Rmd) for an example using animations in a reveal.js slideshow.
