@@ -1,0 +1,46 @@
+---
+title: A reveal.js presentation
+subtitle: with R animations
+author: Kevin Stadler
+date: 2014
+output: revealjs::revealjs_presentation
+---
+
+# A plain gif with no navigation
+
+<!-- to build this example you will need the rmarkdown package as well as jjallaire's revealjs:
+
+install.packages(rmarkdown)
+devtools::install_github("jjallaire/revealjs")
+
+rmarkdown::render('example.Rmd')
+-->
+
+```{r firstanimation, results='asis'}
+library(Rmdanimation)
+# use cat to avoid the addition of line-numbering to the markdown string
+cat(animatedGIF({for (i in 0:10) plot(i, i, xlim=c(0,10), ylim=c(0,10))}, "myfirstanimation", interval=0.2, allowHTML=FALSE))
+```
+<!-- alternatively you can use this
+`r animatedGIF({for (i in 0:10) plot(i, i, xlim=c(0,10), ylim=c(0,10))}, "myfirstanimation", interval=0.2)`
+-->
+
+# Reset animation by clicking on it
+
+`r animatedGIF({for (i in 0:10) plot(i, i, xlim=c(0,10), ylim=c(0,10))}, "secondanimation", interval=0.2)`
+
+# A non-looping gif
+
+Again the animation can be restarted by clicking on it
+
+`r animatedGIF({for (i in 0:10) plot(i, i, xlim=c(0,10), ylim=c(0,10))}, "thirdanimation", interval=0.2, loop=1)`
+
+# Full navigability in an Iframe
+
+`r animatedHTML({for (i in 0:10) plot(i, i, xlim=c(0,10), ylim=c(0,10))}, "htmlanimation", interval=0.2)`
+
+# Links
+
+- R Markdown: http://rmarkdown.rstudio.com
+- reveal.js: https://github.com/jjallaire/revealjs
+- the animation package: http://cran.r-project.org/web/packages/animation/index.html

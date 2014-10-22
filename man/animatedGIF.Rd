@@ -5,10 +5,24 @@
 \usage{
 animatedGIF(expr, filename, title = filename, allowHTML = TRUE, ...)
 }
+\arguments{
+\item{expr}{an R expression to be evaluated to create a sequence of images}
+
+\item{filename}{unique filename to be used for the saved image file (without extension)}
+
+\item{title}{animation title, used as Alt text}
+
+\item{allowHTML}{logical: if TRUE (the default), decorate the return value with some HTML to allow basic navigation/restarting of the animation on click}
+
+\item{...}{other arguments passed to \code{\link{ani.options}}}
+}
 \value{
 a Markdown/HTML snippet that can be used to embed the generated animation
 }
 \description{
 Create an animated gif to be used for embedding in a Markdown file
+}
+\seealso{
+\code{\link{saveGIF}}
 }
 
