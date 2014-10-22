@@ -1,6 +1,6 @@
-#' A package for a paper
+#' A package for on-the-fly creation and embedding of R animations in R Markdown files 
 #' @name Rmdanimation
-#' @import animation
+#' @importFrom animation ani.options saveGIF saveHTML
 
 ani.options(autobrowse=FALSE, autoplay=FALSE, imgdir="animations")
 
