@@ -1,0 +1,15 @@
+Package: Rmdanimation
+Title: An R package for on-the-fly creation and embedding of R animations in Markdown
+Version: 0.1
+Date: 2014-10-22
+URL: https://github.com/kevinstadler/Rmdanimation
+Authors@R: "Kevin Stadler <kevin.stadler@ed.ac.uk> [aut, cre]"
+Description: What the package does (one paragraph)
+Depends:
+    R (>= 2.14.0)
+License: GPL
+LazyData: true
+Imports:
+    animation
+Suggests:
+    rmarkdown
