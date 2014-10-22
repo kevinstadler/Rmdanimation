@@ -14,13 +14,13 @@ Since the functions are just a thin wrapper around the *animation* package, all 
 
 1. in a normal R code chunk, use the *results='asis'* option and call *cat()* to print the Markdown snippet (otherwise you'll end up with superfluous line numbering added by *print()*). This way multiple animations can be output by one code chunk.
 
-    ``` ````{r someanimations, results='asis'}
+    ` ````{r someanimations, results='asis'}
     library(Rmdanimation)
     cat(animatedGIF({for (i in 0:10) plot(i, i, xlim=c(0,10), ylim=c(0,10))}, "myfirstanimation"))
     
     # the second animation stop after playing through it once
     cat(animatedGIF({for (i in 0:10) plot(i, i, xlim=c(0,10), ylim=c(0,10))}, "stoppinganimation", loop=1))
-    ```` ```
+    ```` `
 
 2. alternatively, if you don't want your code to be printed anyway, you can simply use the inline code chunk syntax:
 
