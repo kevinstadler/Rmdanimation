@@ -2,7 +2,10 @@
 #' @name Rmdanimation
 #' @importFrom animation ani.options saveGIF saveHTML
 
-ani.options(autobrowse=FALSE, autoplay=FALSE, imgdir="animations/")
+# load animation package (just in case, for standalone use)
+library(animation)
+
+defaultoptions <- ani.options(autobrowse=FALSE, autoplay=FALSE, verbose=FALSE, imgdir="animations/")
 
 #' Create an animated gif to be used for embedding in a Markdown file
 #'
@@ -18,7 +21,7 @@ animatedGIF <- function(expr, filename, title=filename, allowHTML=TRUE, ...) {
   filename <- paste(filename, ".gif", sep="")
   if (file.exists(filename))
     file.remove(filename)
-  suppressMessages(saveGIF(expr, movie.name=filename, title=title, ...))
+  suppressMessages(saveGIF(expr, movie.name=filename, title=title, ani.options=defaultoptions, ...))
   mdstring <- paste("![", title, "](", filename, ")", sep="")
   if (allowHTML) {
     # add some limited navigatability to the gif by resetting the animation on click
@@ -38,6 +41,6 @@ animatedGIF <- function(expr, filename, title=filename, allowHTML=TRUE, ...) {
 #' @seealso \code{\link{saveHTML}}
 #' @export
 animatedHTML <- function(expr, filename, title=filename, ani.width=ani.options("ani.width"), ani.height=ani.options("ani.height"), ...) {
-  suppressMessages(saveHTML(expr, img.name=filename, htmlfile=paste(filename, ".html", sep=""), verbose=FALSE, ani.width=ani.width, ani.height=ani.height, ...)) # single.opts=
+  suppressMessages(saveHTML(expr, img.name=filename, htmlfile=paste(filename, ".html", sep=""), title=title, ani.options=defaultoptions, ani.width=ani.width, ani.height=ani.height, ...))
   paste('<iframe src="', filename, '.html" width="', ani.width+150, '" height="', ani.height+150, '">Animation &quot;', title, "&quot;</iframe>", sep="")
 }
