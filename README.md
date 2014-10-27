@@ -27,11 +27,10 @@ cat(animatedGIF({for (i in 0:10) plot(i, i, xlim=c(0,10), ylim=c(0,10))}, "myfir
 
 # when passed to animatedGIF(), the `loop` argument specifies how many times the
 # animation should be repeated before stopping
-cat(animatedGIF({for (i in 0:10) plot(i, i, xlim=c(0,10), ylim=c(0,10))}, "stoppinganimation", loop=1))
-```
+cat(animatedGIF({for (i in 0:10) plot(i, i, xlim=c(0,10), ylim=c(0,10))}, "stoppinganimation", loop=1))```
 ````
 
-2. alternatively, if you don't want your code to be printed anyway, you can simply use the inline code chunk syntax:
+2. alternatively, if you don't want your R code to be printed anyway, you can simply use the inline code chunk syntax:
 
     `` `r library(Rmdanimation); animatedGIF({for (i in 0:10) plot(i, i, xlim=c(0,10), ylim=c(0,10))}, "myfirstanimation")` ``
 
