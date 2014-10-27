@@ -44,7 +44,7 @@ Only `animatedGIF()` called with `allowHTML=FALSE` will return a pure Markdown i
 `r animatedHTML({for (i in 0:10) plot(i, i, xlim=c(0,10), ylim=c(0,10))}, "navigableanimation")`
 ```
 
-More fine-grained control over which navigation elements are shown. Note how for `animatedHTML()` the `loop` parameter is a boolean.
+SciAnimator allows fine-grained control over which navigation elements are shown by passing a config string as its `single.opts` parameter. Also note how for `animatedHTML()` the `loop` parameter is boolean:
 
 ```
 `r animatedHTML({for (i in 0:10) plot(i, i, xlim=c(0,10), ylim=c(0,10))}, "navigableanimation", loop=FALSE, single.opts="'controls': ['first', 'play', 'loop', 'speed']")`
